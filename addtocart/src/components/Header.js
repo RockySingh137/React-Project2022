@@ -8,7 +8,7 @@ import MenuItem from '@mui/material/MenuItem';
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Table from 'react-bootstrap/esm/Table';
-
+import { DLT } from '../redux/actions/action';
 
 const Header = () => {
 
@@ -28,6 +28,24 @@ const Header = () => {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+
+    const dlt = (id)=>{
+        dispatch(DLT(id))
+    }
+
+
+    const total = ()=>{
+        let price = 0;
+        getdata.map((ele,k)=>{
+            price = ele.price * ele.qnty + price
+        });
+        setPrice(price);
+    };
+
+    useEffect(()=>{
+        total();
+    },[total])
 
     return (
         <>
@@ -86,12 +104,12 @@ const Header = () => {
                                                             <p>{e.rname}</p>
                                                             <p>Price : ₹{e.price}</p>
                                                             <p>Quantity : {e.qnty}</p>
-                                                            <p style={{color:"red",fontSize:20,cursor:"pointer"}} >
+                                                            <p style={{color:"red",fontSize:20,cursor:"pointer"}} onClick={()=>dlt(e.id)}>
                                                                 <i className='fas fa-trash smalltrash'></i>
                                                             </p>
                                                         </td>
 
-                                                        <td className='mt-5'style={{color:"red",fontSize:20,cursor:"pointer"}} >
+                                                        <td className='mt-5'style={{color:"red",fontSize:20,cursor:"pointer"}}  onClick={()=>dlt(e.id)}>
                                                         <i className='fas fa-trash largetrash'></i>
                                                         </td>
                                                     </tr>
@@ -109,7 +127,7 @@ const Header = () => {
                     onClick={handleClose}
                      style={{position:"absolute",top:2,right:20,fontSize:23,cursor:"pointer"}}></i>
                     <p style={{fontSize:22}}>Your carts is empty</p>
-                    <img src="https://raw.githubusercontent.com/harsh17112000/react_redux_cart_youtube/main/public/cart.gif" style={{width:"5rem",padding:10}} />
+                    <img src="https://raw.githubusercontent.com/harsh17112000/react_redux_cart_youtube/main/public/cart.gif" alt="" className='emptycart_img' style={{width:"5rem",padding:10}} />
                    </div>
                     }
 
