@@ -42,7 +42,9 @@ import MenuItem from '@mui/material/MenuItem';
         onClose={handleClose}
       >
         <div className='card_details d-flex justify-content-center align-items-center' style={{width:"24rem",padding:10,position:"relative"}}>
-        <i className='fas fa-close smallclose' style={{position:"absolute",top:2,right:20,fontSize:23,cursor:"pointer"}}></i>
+        <i className='fas fa-close smallclose' 
+        onClick={handleClose}
+        style={{position:"absolute",top:2,right:20,fontSize:23,cursor:"pointer"}}></i>
         <p style={{fontSize:20}}>Your Cart is Empty</p>
         <img src="https://raw.githubusercontent.com/harsh17112000/react_redux_cart_youtube/main/public/cart.gif" className='emptycart_img' alt="cart.gif" style={{width:"5rem",padding:10}}/>
         </div>
