@@ -5,7 +5,7 @@ const CardsDetails = () => {
   return (
     <>
       <div className="container mt-2">
-        <h2 className='text-center'>Iteams Details Page
+        <h2 className='text-center'>Items Detail Page
         </h2>
 
         <section className='container mt-3'>
@@ -29,6 +29,8 @@ const CardsDetails = () => {
               <td>
                 <p><strong>Rating :</strong> <span style={{background:"green",color:"#fff",padding:"2px 5px",borderRadius:"5px"}}>5 ★	</span></p>
                 <p><strong>Order Review :</strong> <span >Good	</span></p>
+                <p><strong>Remove :</strong> <span ><i className='fas fa-trash' style={{color:"red",fontSize:20,cursor:"pointer"}}></i></span></p>
+
                 
               </td>
             </tr>
